@@ -1,0 +1,468 @@
+/* ============================================================
+   Fonts
+   ============================================================ */
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf")
+        format("truetype");
+}
+
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+    --font-primary: "Space Grotesk", sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4.5rem;
+    --spacing-xl: 9rem;
+    --spacing-page-h: 10rem;
+    --spacing-side: 16rem;
+
+    /* Typography */
+    --font-size-nav: 1.8rem;
+    --font-size-counter: 3rem;
+    --font-size-label: 5rem;
+
+    /* Layout */
+    --logo-size: 5vw;
+    --img-item-width: 65vw;
+
+    /* Animation */
+    --transition-slide: 0.5s ease;
+    --scroll-duration: 400ms;
+    --fixed-layer-delay: 550ms;
+    --scroll-bottom-tolerance: 100px;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: white; /* NEU: Wichtig als Basis für mix-blend-mode: difference */
+}
+
+/* ============================================================
+   Header / Logo
+   ============================================================ */
+header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+#logo {
+    width: var(--logo-size);
+    height: auto;
+    margin: 0;
+    position: fixed;
+    bottom: 1.7rem;
+    left: 2rem;
+    top: auto;
+    right: auto;
+
+    filter: invert(1);
+    mix-blend-mode: difference;
+    z-index: 1000;
+}
+
+/* ============================================================
+   Project Details
+   ============================================================ */
+.project-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-page-h);
+    margin-bottom: 21.2rem; /* intentional: aligns with image slider baseline */
+}
+
+.text-container {
+    width: 50%;
+    transform: translateY(3.7rem); /* Text separat bewegen */
+}
+
+.project-details > img {
+    transform: translateY(5rem);
+    width: 20vw;
+    max-width: 250px;
+    height: 250px; /* Feste Höhe, damit sich der Text nicht verschiebt */
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* ============================================================
+   Image Slider
+   ============================================================ */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    padding: var(--spacing-sm);
+}
+
+#track {
+    display: flex;
+    gap: var(--spacing-md);
+    transition: transform var(--transition-slide);
+}
+
+.img-item {
+    flex-basis: var(--img-item-width);
+    flex-shrink: 0;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
+.img-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   Text Slider (Label + Counter)
+   ============================================================ */
+.text-slider {
+    display: flex;
+    flex-direction: row;
+        
+    justify-content: space-between;
+    width: var(--img-item-width);
+    margin: 0 auto;
+}
+
+.beschrieb {
+    display: flex;
+    align-items: flex-start;
+    font-weight: bolder;
+    font-size: var(--font-size-label);
+}
+
+.image-counter {
+    display: flex;
+    align-items: flex-end;
+    font-weight: bolder;
+    font-size: var(--font-size-counter);
+}
+
+.text-slider p {
+    margin-bottom: 0;
+    line-height: 85%;
+}
+
+/* ============================================================
+   Fixed Overlay Layer (set via JS, styled here)
+   ============================================================ */
+#fixed-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* ============================================================
+   Footer / Navigation
+   ============================================================ */
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+}
+
+footer a {
+    color: white; /* GEÄNDERT: Von black zu white, damit die Differenz auf weissem Grund Schwarz ergibt */
+    text-decoration: none;
+    font-size: var(--font-size-nav);
+    font-weight: bolder;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navigation {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--img-item-width);
+    z-index: 1000;
+    mix-blend-mode: difference; /* NEU: Aktiviert den Invertierungs-Effekt für die gesamte Navigation */
+}
+
+#fh-muttenz-link {
+    font-weight: bolder;
+}
+
+/* Desktop: lang-switcher unten rechts */
+.lang-switcher {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 10.8rem;
+    font-size: var(--font-size-nav);
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    mix-blend-mode: difference;
+    user-select: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+
+footer a:hover, .lang-switcher:hover {
+    color: #00ffcc; /* Bright neon color */
+    outline: none;
+}
+/* ============================================================
+   Responsive – Mobile
+   ============================================================ */
+@media (max-width: 768px) {
+    :root {
+        --spacing-page-h: 1.5rem;
+        --font-size-label: 2rem;
+        --font-size-counter: 1.4rem;
+        --font-size-nav: 1.4rem;
+        --logo-size: 18vw;
+        --img-item-width: 90vw;
+    }
+
+    /* Hide desktop-only elements */
+    .image-container,
+    #track,
+    .text-slider,
+    #fixed-layer,
+    main > .project-details {
+        display: none !important;
+    }
+
+    /* Show mobile layout */
+    .mobile-slider {
+        display: block !important;
+        padding-top: 5rem; /* Platz für fixes Logo oben */
+    }
+
+    /* Nav: eine Zeile, volle Breite, gleichmässig verteilt, unten fix */
+    .navigation {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: none;
+        z-index: 1000;
+        mix-blend-mode: difference;
+    }
+
+    .navigation ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 0 1.5rem;
+        margin: 0;
+        list-style: none;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Lang-switcher: fix oben rechts — override der Desktop-Regel */
+    .lang-switcher {
+        position: fixed !important;
+        top: 1.5rem !important;
+        bottom: auto !important;
+        right: 1.5rem !important;
+        left: auto !important;
+        font-size: var(--font-size-nav);
+        z-index: 1001;
+    }
+
+    /* Logo: fix oben links */
+    #logo {
+        display: block !important;
+        position: fixed !important;
+        top: 1.5rem !important;
+        bottom: auto !important;
+        left: 1.5rem !important;
+        right: auto !important;
+        width: var(--logo-size) !important;
+        margin: 0;
+    
+        filter: invert(1) !important;
+        mix-blend-mode: difference !important;
+        z-index: 1000 !important;
+    }
+}
+
+/* ============================================================
+   Mobile Vertical Layout
+   ============================================================ */
+.mobile-slider {
+    display: none;
+    padding: 1.5rem 1.5rem 7rem;
+}
+
+/* Project info block */
+.mobile-project-info {
+    display: flex;
+    flex-direction: row;
+        
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.mobile-project-text {
+    flex: 1;
+}
+
+.mobile-project-text h1 {
+    font-size: 1.3rem;
+    font-weight: bolder;
+    margin: 0 0 0.75rem;
+    line-height: 1.15;
+}
+
+.mobile-project-text p {
+    font-size: 0.85rem;
+    margin: 0 0 0.4rem;
+    line-height: 1.4;
+}
+
+.mobile-project-icon {
+    width: 35vw;
+    max-width: 160px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Each image slide */
+.mobile-slide {
+    margin-bottom: 3rem;
+}
+
+.mobile-slide > img:first-child {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mobile-slide-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.mobile-slide-label {
+    font-size: var(--font-size-label);
+    font-weight: bolder;
+    line-height: 85%;
+}
+
+.mobile-slide-counter {
+    font-size: var(--font-size-counter);
+    font-weight: bolder;
+}
+
+/* Plan / icon below each image */
+.mobile-plan-icon {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+html, body {
+    overscroll-behavior-y: none;
+}
+
+/* ============================================================
+   Disclaimer Overlay
+   ============================================================ */
+#disclaimer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    cursor: pointer;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.disclaimer-content {
+    max-width: 700px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: black;
+    font-family: var(--font-primary);
+}
+
+.click-to-continue {
+    margin-top: 3rem;
+    font-size: 1rem;
+    opacity: 0.5;
+    
+}
+
+
+
+/* ============================================================
+   About / Impressum Overlay
+   ============================================================ */
+#about-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 99998; /* Just below disclaimer if both open */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    cursor: pointer;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.about-content {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: black;
+    font-family: var(--font-primary);
+}
+.about-content p {
+    margin: 0.5rem 0;
+}

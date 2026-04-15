@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.5 81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #200;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="66" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="132" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="198" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="198" width="15" height="15"/>
+  <rect class="cls-1" x="16.5" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="82.5" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="148.5" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="33" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="99" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" x="165" y="16.5" width="15" height="15"/>
+  <rect class="cls-1" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="66" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="132" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="198" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="33" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="99" y="33" width="15" height="15"/>
+  <rect class="cls-1" x="165" y="33" width="15" height="15"/>
+  <rect class="cls-1" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="66" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="132" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="198" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="16.5" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="82.5" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="148.5" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="214.5" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="33" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="99" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" x="165" y="49.5" width="15" height="15"/>
+  <rect class="cls-1" y="66" width="15" height="15"/>
+</svg>
